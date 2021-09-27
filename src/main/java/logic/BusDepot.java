@@ -3,6 +3,7 @@ package logic;
 import java.util.List;
 
 public class BusDepot {
+
     private List<Bus> buses;
 
     public BusDepot(List<Bus> buses) {

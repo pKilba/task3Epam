@@ -24,7 +24,6 @@ public class RoadMap {
     }
 
     public static RoadMap getInstance(List<BusStop> busStops) {
-        //zamena na optional
         if (instance == null) {
             instance = new RoadMap(busStops);
         }

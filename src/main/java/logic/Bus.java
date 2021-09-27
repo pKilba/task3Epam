@@ -1,5 +1,7 @@
 package logic;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import service.BusStopService;
 import service.impl.BusStopServiceImpl;
 
@@ -7,7 +9,8 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Bus implements Runnable {
-    //private static Logger logger = LogManager.getLogger();
+
+    private static Logger logger = LogManager.getLogger();
     public static AtomicInteger busId = new AtomicInteger(0);
     private int busNumber;
     private int nextStop;
@@ -60,23 +63,24 @@ public class Bus implements Runnable {
         this.passengers = passengers;
     }
 
-    public void openTheDoorForNumberPassenger(int numberPassenger) {
-
-    }
 
     @Override
     public void run() {
-        System.out.println("хуйня на " + busId);
+        logger.info("Bus went, id bus: " + busId.getAndAdd(1));
         RoadMap roadMap = RoadMap.getInstance(Arrays.asList(
                 new BusStop("1", 1, new AtomicInteger(1), 2, 3),
                 new BusStop("2", 1, new AtomicInteger(2), 4, 5)));
-        int lengthBusStop = roadMap.getBusStops().size();
-
-        for (; nextStop < lengthBusStop; nextStop++) {
+        int lengthBusStops = roadMap.getBusStops().size();
+        for (; nextStop < lengthBusStops; nextStop++) {
             BusStop busStop = roadMap.getNextBusStop(nextStop);
             BusStopService busStopService = new BusStopServiceImpl();
-            busStopService.busParking(this, busStop);
-//             busStop.busParking(this);
+            try {
+                busStopService.busParking(this, busStop);
+            } catch (Exception e) {
+                logger.error("Bus parking exceptional");
+            }
+
         }
     }
+
 }
