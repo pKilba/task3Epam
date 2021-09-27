@@ -1,7 +1,7 @@
-package service;
+package com.epam.task3.service;
 
-import logic.Bus;
-import logic.BusStop;
+import com.epam.task3.logic.Bus;
+import com.epam.task3.logic.BusStop;
 
 public interface BusStopService {
 

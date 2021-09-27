@@ -1,9 +1,9 @@
-package logic;
+package com.epam.task3.logic;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import service.BusStopService;
-import service.impl.BusStopServiceImpl;
+import com.epam.task3.service.BusStopService;
+import com.epam.task3.service.impl.BusStopServiceImpl;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;

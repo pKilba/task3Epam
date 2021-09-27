@@ -1,4 +1,4 @@
-package logic;
+package com.epam.task3.logic;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;

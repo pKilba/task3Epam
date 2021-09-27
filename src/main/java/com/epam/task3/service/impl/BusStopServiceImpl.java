@@ -1,12 +1,12 @@
-package service.impl;
+package com.epam.task3.service.impl;
 
-import exeption.RangeException;
-import logic.Bus;
-import logic.BusStop;
+import com.epam.task3.exeption.RangeException;
+import com.epam.task3.logic.Bus;
+import com.epam.task3.logic.BusStop;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import service.BusStopService;
-import validator.CheckCorrectPassengerNumber;
+import com.epam.task3.service.BusStopService;
+import com.epam.task3.validator.CheckCorrectPassengerNumber;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package logic;
+package com.epam.task3.logic;
 
 import java.util.List;
 

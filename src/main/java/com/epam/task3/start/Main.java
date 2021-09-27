@@ -1,7 +1,7 @@
-package start;
+package com.epam.task3.start;
 
-import logic.Bus;
-import logic.BusDepot;
+import com.epam.task3.logic.Bus;
+import com.epam.task3.logic.BusDepot;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
