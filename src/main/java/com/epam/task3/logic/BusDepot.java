@@ -4,9 +4,11 @@ import java.util.List;
 
 public class BusDepot {
 
+
+    private  static  BusDepot instance;
     private List<Bus> buses;
 
-    public BusDepot(List<Bus> buses) {
+    BusDepot(List<Bus> buses) {
         this.buses = buses;
     }
 
@@ -18,6 +20,11 @@ public class BusDepot {
         this.buses = buses;
     }
 
-
+    public static BusDepot getInstance(List<Bus> buses) {
+        if (instance == null) {
+            instance = new BusDepot(buses);
+        }
+        return instance;
+    }
 
 }

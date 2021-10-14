@@ -5,9 +5,8 @@ import java.util.List;
 public class RoadMap {
 
     private List<BusStop> busStops;
-    private static RoadMap instance;
 
-    private RoadMap(List<BusStop> busStops) {
+     RoadMap(List<BusStop> busStops) {
         this.busStops = busStops;
     }
 
@@ -23,11 +22,6 @@ public class RoadMap {
         return busStops.get(i);
     }
 
-    public static RoadMap getInstance(List<BusStop> busStops) {
-        if (instance == null) {
-            instance = new RoadMap(busStops);
-        }
-        return instance;
-    }
+
 
 }

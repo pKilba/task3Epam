@@ -1,5 +1,6 @@
 package com.epam.task3.logic;
 
+import com.epam.task3.exeption.RangeException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.epam.task3.service.BusStopService;
@@ -67,19 +68,20 @@ public class Bus implements Runnable {
     @Override
     public void run() {
         logger.info("Bus went, id bus: " + busId.getAndAdd(1));
-        RoadMap roadMap = RoadMap.getInstance(Arrays.asList(
-                new BusStop("1", 1, new AtomicInteger(1), 2, 3),
-                new BusStop("2", 1, new AtomicInteger(2), 4, 5)));
+        RoadMap roadMap = new RoadMap (Arrays.asList(
+                new BusStop("Fist Stop", 3, new AtomicInteger(1), 2, 3),
+                new BusStop("Second Stop", 1, new AtomicInteger(2), 4, 5)));
         int lengthBusStops = roadMap.getBusStops().size();
         for (; nextStop < lengthBusStops; nextStop++) {
             BusStop busStop = roadMap.getNextBusStop(nextStop);
             BusStopService busStopService = new BusStopServiceImpl();
             try {
                 busStopService.busParking(this, busStop);
-            } catch (Exception e) {
+            } catch (InterruptedException e) {
                 logger.error("Bus parking exceptional");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
         }
     }
 

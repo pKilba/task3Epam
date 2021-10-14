@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         logger.info("Depot creation");
-        BusDepot busDepot = new BusDepot(Arrays.asList(new Bus(1, 24, 89),
+        BusDepot busDepot = BusDepot.getInstance(Arrays.asList(new Bus(1, 24, 89),
                 new Bus(2, 30, 99),
                 new Bus(3, 40, 66),
                 new Bus(4, 25, 55),
