@@ -1,5 +1,6 @@
 package com.epam.task3.logic;
 
+import java.util.Objects;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -81,6 +82,32 @@ public class BusStop {
         this.semaphore = semaphore;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BusStop busStop = (BusStop) o;
+        return busesMax == busStop.busesMax && timeStop == busStop.timeStop && enteringPassenger == busStop.enteringPassenger && outPassenger == busStop.outPassenger && Objects.equals(name, busStop.name) && Objects.equals(passengers, busStop.passengers) && Objects.equals(semaphore, busStop.semaphore);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, busesMax, passengers, timeStop, semaphore, enteringPassenger, outPassenger);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("BusStop{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", busesMax=").append(busesMax);
+        sb.append(", passengers=").append(passengers);
+        sb.append(", timeStop=").append(timeStop);
+        sb.append(", semaphore=").append(semaphore);
+        sb.append(", enteringPassenger=").append(enteringPassenger);
+        sb.append(", outPassenger=").append(outPassenger);
+        sb.append('}');
+        return sb.toString();
+    }
 }
 
 

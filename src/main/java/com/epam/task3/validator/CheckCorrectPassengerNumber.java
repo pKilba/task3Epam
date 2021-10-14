@@ -9,7 +9,6 @@ public class CheckCorrectPassengerNumber {
 
     private static Logger logger = LogManager.getLogger();
 
-
     public boolean isCorrectRange(Bus bus) throws RangeException {
 
         byte minPassengers = 0;
